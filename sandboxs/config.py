@@ -1,4 +1,4 @@
-import configparser
+import configparser as ConfigParser
 import argparse
 import os
 
@@ -8,7 +8,7 @@ argparser = argparse.ArgumentParser(
         conflict_handler='resolve'
         )
 
-configparser = configparser.SafeConfigParser()
+configparser = ConfigParser.ConfigParser()
 configparser.optionxform = str
 
 def load_config(config_file):

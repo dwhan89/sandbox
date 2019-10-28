@@ -33,7 +33,7 @@ for psa in patches:
     misc.create_dir(output_path("data"))
     cmb_file_temp = output_path("data/%s_{}_data_color.png"%(psa))
 
-    if not os.path.exists(cmb_file_temp.format("U")) or ovewrite:
+    if not os.path.exists(cmb_file_temp.format("U")) or overwrite:
         emaps = DM.get_coadd(season, patch, array_freq, srcfree=False, ncomp=None)
         eplots = enplot.plot(emaps, downgrade=2, grid=True, mask=0)
 
@@ -43,7 +43,7 @@ for psa in patches:
         del eplots, emaps
 
 
-    if not os.path.exists(cmb_file_temp.format("B")) or ovewrite:
+    if not os.path.exists(cmb_file_temp.format("B")) or overwrite:
         emaps = DM.get_coadd(season, patch, array_freq, srcfree=False, ncomp=None)
         sshape, swcs = emaps.shape, emaps.wcs
 

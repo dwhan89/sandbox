@@ -1,6 +1,7 @@
 from pixell import enmap, enplot
 from soapack import interfaces as soint
 import os
+from sandbox import misc
 
 overwrite = False
 
@@ -11,10 +12,12 @@ DM = soint.models['act_mr3'](calibrated=False)
 patches = DM.get_psa_indexes()
 
 for psa in patches:
+    print("processing {}".format(psa))
     season, patch, array, freq = psa.split('_')
     array_freq = '{}_{}'.format(array, freq)
 
-    ivar_file = output_path("{}_ivar_gray.png".format(psa))
+    misc.create_dir(output_path('ivars'))
+    ivar_file = output_path("ivars/{}_ivar_gray.png".format(psa))
     if not os.path.exists(ivar_file) or overwrite:
         ivar = DM.get_coadd_ivar(season, patch, array_freq)
         shape, wcs = ivar.shape, ivar.wcs

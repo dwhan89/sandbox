@@ -16,18 +16,19 @@ for psa in patches:
     season, patch, array, freq = psa.split('_')
     array_freq = '{}_{}'.format(array, freq)
 
+    ivar = DM.get_coadd_ivar(season, patch, array_freq)
+    shape, wcs = ivar.shape, ivar.wcs
+
     misc.create_dir(output_path('ivars'))
     ivar_file = output_path("ivars/{}_ivar_gray.png".format(psa))
     if not os.path.exists(ivar_file) or overwrite:
-        ivar = DM.get_coadd_ivar(season, patch, array_freq)
-        shape, wcs = ivar.shape, ivar.wcs
 
         eplots = enplot.plot(ivar, color='gray', downgrade=2, grid=True, mask=0)
         for eplot in eplots:
             eplot.write(ivar_file, eplot)
 
-        del eplots, ivar
-
+        del eplots
+    del ivar
 
     #emap = DM.get_coadd(season, patch, array_freq, srcfree=False, ncomp=None)
     #eplots =

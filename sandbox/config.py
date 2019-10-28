@@ -3,7 +3,7 @@ import argparse
 import os
 
 argparser = argparse.ArgumentParser(
-        prog='sandboxs',
+        prog='sandbox',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
         conflict_handler='resolve'
         )

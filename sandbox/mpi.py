@@ -12,7 +12,7 @@
 #
 import sys
 import numpy as np
-from sandboxs import misc
+from sandbox import misc
 
 
 # blank function template

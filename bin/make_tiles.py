@@ -21,7 +21,9 @@ for psa in patches:
 
         eplots = enplot.plot(ivar, color='gray', downgrade=2, grid=True, mask=0)
         for eplot in eplots:
-            eplot.write(ivar_file)
+            eplot.write(ivar_file, eplot)
+
+        del eplots, ivar
 
 
     #emap = DM.get_coadd(season, patch, array_freq, srcfree=False, ncomp=None)

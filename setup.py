@@ -11,7 +11,8 @@ config = dict(description='random set up code snippets that I play with', author
               url='https://github.com/dwhan89/sandbox', download_url='https://github.com/dwhan89/sandbox',
               author_email='dongwon.han@stonybrook.edu', version='1.1.1', install_requires=[
         'numpy',
-        'matplotlib'
+        'matplotlib',
+        'scipy'
     ], packages=[
         'sandbox'
     ], scripts=[], name='sandbox')

@@ -1,6 +1,5 @@
 import configparser as ConfigParser
 import argparse
-import os
 
 argparser = argparse.ArgumentParser(
         prog='sandbox',
@@ -10,6 +9,7 @@ argparser = argparse.ArgumentParser(
 
 configparser = ConfigParser.ConfigParser()
 configparser.optionxform = str
+
 
 def load_config(config_file):
     configparser.read(config_file)

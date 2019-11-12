@@ -11,7 +11,9 @@
 #
 #
 import sys
+
 import numpy as np
+
 from sandbox import misc
 
 
@@ -22,12 +24,12 @@ def _pass():
 
 # set the default value
 _initialized = False
-_switch      = False
-rank         = 0
-size         = 1
-comm         = None
-barrier      = _pass
-broadcast    = _pass
+_switch = False
+rank = 0
+size = 1
+comm = None
+barrier = _pass
+broadcast = _pass
 
 
 def init(switch=False):

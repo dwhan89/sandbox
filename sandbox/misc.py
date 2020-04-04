@@ -14,7 +14,6 @@ def str2bool(v):
 
 
 def create_dir(path_to_dir):
-    ''' check wether the directory already exists. if not, create it '''
     if not os.path.isdir(path_to_dir):
         os.makedirs(path_to_dir)
         exit = 0
@@ -32,3 +31,25 @@ def progress(count, total, status=''):
     percents = round(100.0 * count / float(total), 1)
     bar = '=' * filled_len + '-' * (bar_len - filled_len)
     print('[%s] %s%s ...%s\r' % (bar, percents, '%', status))
+
+def create_dict(*idxes):
+    height  = len(idxes)
+    output = {}
+
+    stack  = []
+    stack.append(output)
+
+    for depth in range(height):
+        stack_temp = []
+        while len(stack) > 0:
+            cur_elmt = stack.pop()
+            for idx in idxes[depth]:
+                cur_elmt[idx] = {}
+                stack_temp.append(cur_elmt[idx])
+        stack = stack_temp
+
+    return output
+
+def is_empty(s):
+    return True if (s is None) or (len(s) == 0) else False
+

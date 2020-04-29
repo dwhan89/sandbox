@@ -2,6 +2,13 @@
 #  miscellenous scripts used throughout the code
 ##
 import os
+import numpy as np
+
+
+def read_bin_edges(bin_file, skiprows=0):
+    assert(os.path.exists(bin_file))
+    (lower, upper, center) = np.loadtxt(bin_file, skiprows=skiprows, unpack=True)
+    return np.concatenate((lower[0:1], upper))
 
 
 def str2bool(v):
